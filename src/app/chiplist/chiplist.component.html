@@ -1,0 +1,13 @@
+<div class="chiplist-container">
+  <mat-chip-list>
+    <mat-chip
+      *ngFor="let person of people"
+      class="person-chip"
+      [removable]="true"
+      (removed)="removePerson(person.name)"
+    >
+      {{person.name}}
+      <mat-icon matChipRemove class="remove-icon">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+</div>

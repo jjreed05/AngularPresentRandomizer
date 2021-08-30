@@ -1,0 +1,66 @@
+<div class="home-page">
+  <div class="home-container card">
+    <div>
+      <h2>
+        Add Person or Couple
+      </h2>
+    </div>
+    <div *ngIf="displayForm" class="person-container">
+      <div class="top-container">
+        <mat-slide-toggle
+          class="couple-toggler"
+          [checked]="isCouple"
+          (change)="setIsCouple()"
+        >
+          Couple
+        </mat-slide-toggle>
+        <app-chiplist [people]="people" (deletionEvent)="receivePeople($event)"></app-chiplist>
+      </div>
+      <div class="person-form">
+        <div class="person-field">
+          <mat-form-field class="person-name" appearance="fill">
+            <mat-label>{{isCouple ? "First Person's Name" : "Name"}}</mat-label>
+            <input
+              matInput
+              type="text"
+              [value]="currentPerson1"
+              (change)="setCurrentPerson(1, $event)"
+            >
+          </mat-form-field>
+        </div>
+        <div class="person-field">
+          <mat-form-field *ngIf="isCouple" class="person-name" appearance="fill">
+            <mat-label>Second Person's Name</mat-label>
+            <input
+              matInput type="text"
+              [value]="currentPerson2"
+              (change)="setCurrentPerson(2, $event)"
+            >
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <p *ngIf="isError" class="error-text">Missing field(s) - Please fill out text fields</p>
+    <div class="button-container">
+      <mat-icon
+        matTooltip="Add Person(s)"
+        class="add-person"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        (click)="addPerson()"
+      >
+        add
+      </mat-icon>
+      <mat-icon
+        *ngIf="showGenerateButton()"
+        matTooltip="Generate Assignment"
+        class="generate-button"
+        aria-hidden="false"
+        (click)="generateAssignments()"
+      >
+        done
+      </mat-icon>
+    </div>
+  </div>
+  <app-report *ngIf="assignments.length > 0" [assignments]="assignments"></app-report>
+</div>

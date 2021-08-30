@@ -1,0 +1,55 @@
+@import "../../utils/_variables"
+
+.home-page
+  display: flex
+  flex-direction: column
+
+  .home-container
+    margin-bottom: 50px
+    .person-container
+      padding-left: 20px
+
+      .top-container
+        display: flex
+        flex-direction: row
+
+        .couple-toggler
+          padding-bottom: 30px
+          font-size: 18px
+          padding-right: 10vw
+
+      .person-form
+        display: flex
+        flex-direction: row
+
+        .person-field
+          width: 20vw
+          padding-right: 25px
+
+          .person-name
+            width: 100%
+
+    .error-text
+      padding-top: 15px
+      color: red
+
+    .button-container
+      display: flex
+      flex-direction: row
+
+      .add-person
+        font-size: 40px
+        color: $lightBlue
+        padding-right: 25px
+        &:hover
+          cursor: pointer
+          color: $darkBlue
+
+      .generate-button
+        font-size: 40px
+        color: $lightBlue
+        &:hover
+          cursor: pointer
+          color: $darkBlue
+
+
