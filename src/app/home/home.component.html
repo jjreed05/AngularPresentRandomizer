@@ -25,6 +25,7 @@
               type="text"
               [value]="currentPerson1"
               (change)="setCurrentPerson(1, $event)"
+              style="display:none;"
             >
           </mat-form-field>
         </div>
@@ -32,9 +33,11 @@
           <mat-form-field *ngIf="isCouple" class="person-name" appearance="fill">
             <mat-label>Second Person's Name</mat-label>
             <input
-              matInput type="text"
+              matInput
+              type="text"
               [value]="currentPerson2"
               (change)="setCurrentPerson(2, $event)"
+              style="display:none;"
             >
           </mat-form-field>
         </div>
